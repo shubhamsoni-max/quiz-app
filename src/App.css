@@ -107,3 +107,10 @@ button:focus {
 button svg {
   margin-right: 5px;
 }
+.pre-next-btn-div{
+  display: flex;
+  justify-content: space-between;
+}
+.pre-next-btn-div button{
+  width: 10rem;
+}
