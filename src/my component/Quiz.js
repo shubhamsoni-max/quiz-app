@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function App() {
+export default function Quiz() {
   const questions = [
     {
       questionText:
@@ -105,18 +105,19 @@ export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [activeBtn, setActiveBtn] = useState("");
 
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
     }
 
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowScore(true);
-    }
+    // const nextQuestion = currentQuestion + 1;
+    // if (nextQuestion < questions.length) {
+    //   setCurrentQuestion(nextQuestion);
+    // } else {
+    //   setShowScore(true);
+    // }
   };
   return (
     <div className="header">
@@ -147,8 +148,8 @@ export default function App() {
               </div>
             </div>
             <div className="answer-section">
-              {questions[currentQuestion].answerOptions.map((answerOption) => (
-                <button
+              {questions[currentQuestion].answerOptions.map((answerOption,index) => (
+                <button className={"btn" + activeBtn} key={index}
                   onClick={() =>
                     handleAnswerOptionClick(answerOption.isCorrect)
                   }

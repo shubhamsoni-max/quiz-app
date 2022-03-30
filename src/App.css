@@ -115,3 +115,6 @@ button svg {
 .pre-next-btn-div button{
   width: 10rem;
 }
+.activeBtn{
+  background-color: #0ebb51;
+}
